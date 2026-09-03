@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class CourseRegistration {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("====================================");
+        System.out.println("      COURSE REGISTRATION SYSTEM");
+        System.out.println("====================================");
+
+        System.out.print("Enter Student Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Student ID: ");
+        String studentId = sc.nextLine();
+
+        System.out.print("Enter number of subjects: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        String[] subjects = new String[n];
+        int[] credits = new int[n];
+
+        int totalCredits = 0;
+
+        for (int i = 0; i < n; i++) {
+
+            System.out.print("Enter Subject " + (i + 1) + " Name: ");
+            subjects[i] = sc.nextLine();
+
+            System.out.print("Enter Credit for " + subjects[i] + ": ");
+            credits[i] = sc.nextInt();
+            sc.nextLine();
+
+            totalCredits += credits[i];
+        }
+
+        System.out.println("\n====================================");
+        System.out.println("       REGISTRATION DETAILS");
+        System.out.println("====================================");
+
+        System.out.println("Student Name : " + name);
+        System.out.println("Student ID   : " + studentId);
+
+        System.out.println("\nRegistered Subjects:");
+
+        for (int i = 0; i < n; i++) {
+            System.out.println((i + 1) + ". " + subjects[i]
+                    + " - " + credits[i] + " credits");
+        }
+
+        System.out.println("\nTotal Credits: " + totalCredits);
+
+        if (totalCredits >= 15) {
+            System.out.println("Eligibility  : ELIGIBLE");
+        } else {
+            System.out.println("Eligibility  : NOT ELIGIBLE");
+        }
+
+        System.out.println("====================================");
+
+        sc.close();
+    }
+}
